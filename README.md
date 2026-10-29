@@ -246,4 +246,4 @@ To add a material, register the file in `config.TENSOR_FILES`. Add the atoms (or
 
 ## Author
 
-Israel Hernández — PhD project on cryogenic detectors for dark matter and CEvNS.
+Israel Hernández and Laura Duque — PhD project on cryogenic detectors for dark matter and CEvNS.
