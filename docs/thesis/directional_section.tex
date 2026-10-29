@@ -1,0 +1,271 @@
+% ============================================================================
+%  Directional signal: daily modulation from crystal anisotropy
+%  Figure file: directional_modulation.png (NuFog_v2/outputs)
+%  Bibliography entries are at the end of this file (move them to your .bib).
+% ============================================================================
+
+\section{Directional signal: daily modulation from crystal anisotropy}
+\label{sec:directionality}
+
+The rates presented so far were computed for an isotropic response, obtained by
+averaging the phonon density of states over directions. Most of the crystals
+considered here are not cubic, however, and their lattice response depends on the
+direction of the momentum transfer $\vec q$. Because the dark-matter (DM) velocity
+distribution seen in the laboratory is itself anisotropic --- the DM ``wind'' arrives
+from the direction opposite to the Earth's velocity $\vec v_E$, which points towards the
+constellation Cygnus --- the interaction rate depends on the orientation of the crystal
+with respect to $\vec v_E$. The Earth's rotation changes this orientation with a period
+of one sidereal day, producing a daily modulation of the rate. Neutrinos do not share
+this signature: solar neutrinos follow the Sun and modulate with the solar day, while the
+atmospheric and diffuse supernova components are approximately isotropic. A daily
+modulation locked to sidereal time is therefore a property of the DM signal alone.
+
+\subsection{Anisotropic response in the incoherent approximation}
+
+In the incoherent approximation the direction dependence enters only through the
+per-atom phonon density-of-states tensor $D_d^{ij}(\omega)$, obtained from the phonon
+eigenvectors $\vec e_{d,\nu}(\vec k)$ as
+\begin{equation}
+  D_d^{ij}(\omega) = \frac{1}{N_k}\sum_{\nu,\vec k}
+  e^{i\,*}_{d,\nu}(\vec k)\, e^{j}_{d,\nu}(\vec k)\;
+  \delta\!\left(\omega-\omega_{\nu}(\vec k)\right),
+  \qquad
+  \int d\omega\, D_d^{ij}(\omega) = \delta^{ij} ,
+\end{equation}
+so that $\frac13\mathrm{Tr}\,D_d(\omega)$ is the unit-normalized scalar density of states
+used in Sec.~\ref{sec:multiphonon}. For a momentum transfer along $\hat q$, the relevant
+quantity is the projected density of states
+$D_d^{\hat q}(\omega) = \hat q_i D_d^{ij}(\omega)\hat q_j$, which replaces the isotropic
+$D_d(\omega)$ everywhere in the multiphonon expansion:
+\begin{equation}
+  W_d(\vec q) = \frac{q^2}{4 m_d}\int d\omega\,\frac{D_d^{\hat q}(\omega)}{\omega},
+  \qquad
+  T^{\hat q}_{d,1}(\omega) = \frac{D_d^{\hat q}(\omega)}{\omega},
+  \qquad
+  T^{\hat q}_{d,n} = T^{\hat q}_{d,1} * T^{\hat q}_{d,n-1} .
+\end{equation}
+Since $D_d^{\hat q}$ is quadratic in $\hat q$, the structure factor satisfies
+$S(\vec q,\omega) = S(-\vec q,\omega)$. For the uniaxial (tetragonal, trigonal) crystals
+studied here it depends, to a good approximation, only on the polar angle $\theta_q$
+between $\hat q$ and the crystallographic $c$ axis. We verified this directly from the
+tensors: the azimuthal variation of the species-summed $\langle 1/\omega\rangle$ is
+zero for CaWO$_4$ and LiNbO$_3$ and 2--6\% for Al$_2$O$_3$ and TeO$_2$, compared with
+polar anisotropies of up to 48\% (W in CaWO$_4$). The remaining azimuthal dependence is
+averaged out. Silicon is cubic, its tensor is isotropic, and it serves as a null test.
+
+\subsection{Rate for an anisotropic velocity distribution}
+
+For an isotropic response the velocity integral reduces to the mean inverse speed
+$\eta(v_{\min})$. In general one needs the Radon transform of the velocity distribution,
+\begin{equation}
+  g(w,\hat q) = \int d^3v\, f(\vec v)\,\delta\!\left(\vec v\cdot\hat q - w\right),
+\end{equation}
+which for the truncated Maxwellian of the Standard Halo Model, boosted by $\vec v_E$, is
+\begin{equation}
+  g(w,\hat q) = \frac{1}{N_{\rm esc}\sqrt{\pi}\,v_0}
+  \left[ e^{-(w+\hat q\cdot\vec v_E)^2/v_0^2} - e^{-v_{\rm esc}^2/v_0^2} \right]
+  \Theta\!\left(v_{\rm esc}-|w+\hat q\cdot\vec v_E|\right),
+  \quad
+  N_{\rm esc} = \mathrm{erf}(z) - \frac{2z}{\sqrt\pi}e^{-z^2},
+\end{equation}
+with $z=v_{\rm esc}/v_0$. The differential rate becomes
+\begin{equation}
+  \frac{dR}{d\omega} = \frac{1}{\rho_T}\frac{\rho_\chi}{m_\chi}
+  \frac{\sigma_n}{4\pi\mu_{\chi n}^2}
+  \int q\,dq \int\frac{d\Omega_q}{4\pi}\;
+  2\,g\!\left(v^*, \hat q\right) S(\vec q,\omega),
+  \qquad
+  v^* = \frac{q}{2m_\chi} + \frac{\omega}{q},
+  \label{eq:dRdw_dir}
+\end{equation}
+which reduces to the isotropic expression because
+$\int (d\Omega_q/4\pi)\, 2 g(w,\hat q) = \eta(w)$. Equation~\eqref{eq:dRdw_dir} depends
+on the angle $\theta_E$ between $\vec v_E$ and the $c$ axis, with
+$R(\theta_E) = R(\pi-\theta_E)$.
+
+Numerically, $S$ is tabulated on 12 independent Gauss--Legendre nodes in
+$\cos\theta_q$, using $S(\theta_q)=S(\pi-\theta_q)$. Because $g$ has a kink at the
+escape velocity, its angular integral is computed by product quadrature: $S$ is held
+fixed within each node's cell in $\cos\theta_q$, while $g$ is sampled finely and averaged
+over the azimuth of $\hat q$. This reproduces $\eta(v_{\min})$ to better than
+$10^{-3}$ wherever $\eta$ exceeds $10^{-3}$ of its maximum. The rate is evaluated for ten
+values of $\theta_E \in [0^\circ,90^\circ]$ and binned exactly as in the isotropic
+pipeline, so the same thresholds and energy resolution (Sec.~\ref{sec:resolution}) can
+be applied.
+
+Two consistency checks were performed. First, averaging the directional rate over all
+orientations of $\vec v_E$ reproduces the isotropic rate. For Si the agreement is better
+than $10^{-4}$ at all masses. For CaWO$_4$, the most anisotropic material, the residual
+is at most $0.3\%$. This residual is physical: the average of $S(D^{\hat q})$ differs
+from $S$ evaluated with the averaged tensor at second order in the anisotropy, because
+the Debye--Waller factor and the multiphonon convolutions are nonlinear in $D$. It also
+shows that the isotropic discovery curves of Sec.~\ref{sec:materials} describe the
+time-averaged rate to within $0.3\%$. Second, the cubic Si crystal shows no modulation,
+as required by symmetry.
+
+\subsection{Laboratory geometry}
+
+For a crystal axis with equatorial coordinates $(\alpha_c,\delta_c)$,
+\begin{equation}
+  \cos\theta_E = \sin\delta_c\sin\delta_E
+  + \cos\delta_c\cos\delta_E\cos(\alpha_c-\alpha_E),
+\end{equation}
+where $(\alpha_E,\delta_E)\simeq(21^{\rm h}12^{\rm m},\,+48^\circ)$ is the direction of
+$\vec v_E$. A laboratory-fixed axis rotates with the local sidereal time (LST). For the
+$c$ axis mounted vertically at LNGS (latitude $42.45^\circ$\,N),
+$\delta_c = 42.45^\circ$ and $\alpha_c = \mathrm{LST}$, so $\theta_E$ sweeps from
+$6^\circ$ to $90^\circ$ every sidereal day (Fig.~\ref{fig:directional}a). This covers
+almost the full independent range of $\theta_E$ and is close to the optimal
+orientation. A horizontal $c$ axis pointing east only sweeps $48^\circ$--$90^\circ$.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{directional_modulation.png}
+  \caption{Daily modulation of the DM rate from crystal anisotropy (heavy mediator,
+  $\sigma=E_{\rm th}/5$ resolution, Standard Halo Model).
+  (a) Angle between the crystal $c$ axis and the DM wind over a sidereal day at LNGS,
+  for a vertical and a horizontal (east-pointing) $c$ axis.
+  (b) Anisotropy of the rate above threshold,
+  $[R(0^\circ)-R(90^\circ)]/[R(0^\circ)+R(90^\circ)]$, as a function of DM mass for
+  $E_{\rm th}=30$\,meV (solid) and $100$\,meV (dashed).
+  (c) Rate over a sidereal day, normalized to its mean, for $m_\chi = 1$\,MeV,
+  $E_{\rm th}=100$\,meV, and a vertical $c$ axis.}
+  \label{fig:directional}
+\end{figure}
+
+\subsection{Results}
+
+The anisotropy of the rate is shown as a function of DM mass in
+Fig.~\ref{fig:directional}b, and the corresponding daily modulation in
+Fig.~\ref{fig:directional}c. Table~\ref{tab:directional} summarizes the values on the
+low-mass plateau. Three features stand out.
+
+\begin{enumerate}
+  \item \textbf{The modulation is confined to $m_\chi \lesssim 50$\,MeV.}
+  At larger masses the rate is dominated by momentum transfers in the impulse regime,
+  where the response approaches that of a free nucleus and is isotropic. The modulation
+  therefore probes the same mass range in which multiphonon emission controls the
+  sensitivity.
+
+  \item \textbf{Its size is at the percent level and depends on the material.}
+  At $E_{\rm th}=100$\,meV, LiNbO$_3$ and TeO$_2$ show the largest anisotropy ($\simeq
+  4\%$), followed by Al$_2$O$_3$ ($2.4\%$) and CaWO$_4$ ($1.2\%$). The ordering follows
+  the anisotropy of the light atoms (O, Li), which dominate the multiphonon response at
+  low mass. The large W anisotropy in CaWO$_4$ shows up mainly at intermediate masses,
+  around $20$\,MeV, where the heavy nucleus contributes more of the rate.
+
+  \item \textbf{The sign can reverse with threshold.}
+  For LiNbO$_3$, Al$_2$O$_3$ and CaWO$_4$, the rate at $\theta_E=0^\circ$ is larger
+  than at $90^\circ$ for $E_{\rm th}=30$\,meV and smaller for $E_{\rm th}=100$\,meV.
+  Events near a low threshold come mostly from the low-frequency part of
+  $D^{\hat q}(\omega)$, weighted by $1/\omega$, and favour the direction with softer
+  modes. Events above the highest optical phonon require several phonons and draw on the
+  high-frequency part of the spectrum, so they favour the direction with stiffer modes.
+  A daily phase that reverses between energy windows is a distinctive signature that a
+  background is unlikely to mimic.
+\end{enumerate}
+
+\begin{table}[t]
+  \centering
+  \caption{Anisotropy of the DM rate above threshold,
+  $[R(0^\circ)-R(90^\circ)]/[R(0^\circ)+R(90^\circ)]$, at $m_\chi = 1$\,MeV, with
+  $\sigma=E_{\rm th}/5$. For a vertical $c$ axis at LNGS the peak-to-peak daily
+  variation is approximately twice this value.}
+  \label{tab:directional}
+  \begin{tabular}{lcc}
+    \hline\hline
+    Material & $E_{\rm th}=30$\,meV & $E_{\rm th}=100$\,meV \\
+    \hline
+    CaWO$_4$  & $+0.1\%$ & $-1.2\%$ \\
+    Al$_2$O$_3$ & $+0.7\%$ & $-2.4\%$ \\
+    TeO$_2$   & $+1.6\%$ & $+4.0\%$ \\
+    LiNbO$_3$ & $+1.6\%$ & $-4.3\%$ \\
+    Si        & $0$      & $0$      \\
+    \hline\hline
+  \end{tabular}
+\end{table}
+
+A sidereal modulation of fractional amplitude $A$ is detected at $3\sigma$ with roughly
+$N \approx 18/A^2$ signal events. For $A = 4\%$ this is of order $10^4$ events, far more
+than the $\mathcal{O}(10)$ events needed for a discovery above the neutrino background
+(Sec.~\ref{sec:discovery}). Directionality is therefore a tool to \emph{confirm} the DM
+origin of an excess --- through its sidereal period, its phase, and the threshold
+dependence of that phase --- rather than to extend the discovery reach.
+
+\subsection{Comparison with the literature}
+
+The isotropic multiphonon rates of this work were validated against the framework of
+Campbell-Deem \emph{et al.}~\cite{CampbellDeem2022} as implemented in the public package
+DarkELF~\cite{Knapen2022DarkELF}, reproducing the rate spectra of
+Ref.~\cite{CampbellDeem2022} (Fig.~\ref{fig:lin_comparison}).
+
+The directional calculation was compared with Stratman and Lin~\cite{StratmanLin2024},
+who computed the daily modulation of multiphonon scattering in Al$_2$O$_3$ and SiC using
+the same incoherent framework with a density-of-states tensor. For this comparison our
+calculation was repeated with their conventions:
+\begin{itemize}
+  \item halo parameters $v_0=220$, $v_E=240$, $v_{\rm esc}=500$\,km/s;
+  \item no energy resolution;
+  \item $c$ axis parallel to $\vec v_E$ at $t=0$ with $\theta_e = 42^\circ$, i.e.\
+  $\cos\theta_E(t)=\cos^2\theta_e+\sin^2\theta_e\cos(2\pi t/24\,\mathrm{h})$;
+  \item modulation amplitude $A_{\rm mod} = |R(0)-\langle R\rangle_t|/\langle R\rangle_t$.
+\end{itemize}
+For the heavy (contact) mediator we obtain, at $m_\chi=10$\,MeV,
+$A_{\rm mod} = 2.7\%$, $5.3\%$ and $7.4\%$ for $E_{\rm th}=120$, $200$ and $300$\,meV.
+At $300$\,meV the maximum is $9.8\%$ for $m_\chi\simeq 3$--$5$\,MeV, and the modulation
+falls below $0.5\%$ above $30$\,MeV. Ref.~\cite{StratmanLin2024} reports modulation
+amplitudes of up to $\simeq 11\%$ at $m_\chi = 10$\,MeV for $E_{\rm th}=300$\,meV,
+amplitudes that grow with threshold, and a significant modulation only for
+$m_\chi\lesssim 30$--$40$\,MeV. Our calculation reproduces the magnitude, the threshold
+dependence and the mass range of the effect. At $m_\chi=10$\,MeV our amplitude is about
+30\% smaller. This difference is within what is expected from the remaining differences
+between the two calculations:
+\begin{itemize}
+  \item independent first-principles force constants and DOS tensors;
+  \item our average over the small azimuthal dependence of the Al$_2$O$_3$ response;
+  \item their evaluation of the impulse-approximation width along $\hat z$;
+  \item their lower cutoff $q_{\rm BZ}=0.95$\,keV on the momentum integral.
+\end{itemize}
+
+\subsection{Limitations}
+
+The incoherent approximation includes anisotropy only through the per-atom density of
+states. It neglects the directional structure of the phonon dispersion, which dominates
+single-phonon scattering at momentum transfers comparable to the inverse lattice
+spacing. Dedicated single-phonon calculations in polar crystals find larger modulations
+at sub-MeV masses~\cite{Griffin2018Directional}. The results presented here should
+therefore be read as a conservative estimate of the low-mass modulation. The CaWO$_4$
+values inherit the uncertainty of its low-frequency phonon spectrum
+(Sec.~\ref{sec:tensor_validation}). Finally, the directional dependence of the
+solar-neutrino background, which modulates with the solar rather than the sidereal day,
+has not been included in the likelihood.
+
+% ----------------------------------------------------------------------------
+%  TODO: Fig.~\ref{fig:lin_comparison} is the DarkELF / Campbell-Deem comparison plot
+%  you already made; adjust the label and the figure number of Ref. [CampbellDeem2022]
+%  that you reproduced. Check the section labels used in \ref{} against your chapter.
+% ----------------------------------------------------------------------------
+
+% ---------------- BibTeX entries (move to your .bib) ------------------------
+% @article{CampbellDeem2022,
+%   author  = {Campbell-Deem, Brian and Knapen, Simon and Lin, Tongyan and Villarama, Ethan},
+%   title   = {Dark matter direct detection from the single phonon to the nuclear recoil regime},
+%   journal = {Phys. Rev. D}, volume = {106}, pages = {036019}, year = {2022},
+%   eprint  = {2205.02250}, archivePrefix = {arXiv}}
+%
+% @article{Knapen2022DarkELF,
+%   author  = {Knapen, Simon and Kozaczuk, Jonathan and Lin, Tongyan},
+%   title   = {{DarkELF}: A python package for dark matter scattering in dielectric targets},
+%   journal = {Phys. Rev. D}, volume = {105}, pages = {015014}, year = {2022},
+%   eprint  = {2104.12786}, archivePrefix = {arXiv}}
+%
+% @article{StratmanLin2024,
+%   author  = {Stratman, Connor and Lin, Tongyan},
+%   title   = {Daily modulation of low-energy nuclear recoils from sub-GeV dark matter},
+%   year    = {2024}, eprint = {2411.03433}, archivePrefix = {arXiv}}
+%
+% @article{Griffin2018Directional,
+%   author  = {Griffin, Sin{\'e}ad and Knapen, Simon and Lin, Tongyan and Zurek, Kathryn M.},
+%   title   = {Directional detection of light dark matter with polar materials},
+%   journal = {Phys. Rev. D}, volume = {98}, pages = {115034}, year = {2018},
+%   eprint  = {1807.10291}, archivePrefix = {arXiv}}

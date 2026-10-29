@@ -1,0 +1,122 @@
+% ============================================================================
+%  Neutrino fog for all materials and comparison with CRESST
+%  Figures: fog_all_materials.png, fog_vs_cresst.png (NuFog_v2/outputs)
+%  New bibliography entries at the end of the file.
+% ============================================================================
+
+\section{Neutrino fog across target materials and comparison with CRESST}
+\label{sec:fog_cresst}
+
+\subsection{Discovery limits for all target materials}
+
+Figure~\ref{fig:fog_all} collects the $3\sigma$ discovery limits for an exposure of
+$1$\,t$\cdot$yr for the five crystals studied in this work, at energy thresholds of
+$30$\,meV and $100$\,meV (with resolution $\sigma = E_{\rm th}/5$) and $1$\,eV. The
+curves define the cross section below which a DM signal can no longer be distinguished
+from coherent elastic neutrino--nucleus scattering, given the flux uncertainties of
+Sec.~\ref{sec:likelihood}.
+
+Two regimes are visible.
+\begin{itemize}
+  \item \textbf{Above $m_\chi \simeq 0.3$\,GeV} the curves of all materials nearly
+  coincide. Here both the DM and the neutrino signals are dominated by nuclear recoils
+  in the impulse regime. The DM rate and the CEvNS rate then scale with the same
+  coherent enhancement, so the target composition largely cancels. The feature near
+  $0.5$\,GeV is where the DM recoil spectrum best mimics the $^8$B solar-neutrino
+  spectrum.
+  \item \textbf{Below $m_\chi \simeq 0.1$\,GeV} the limits are set by the lattice
+  response and separate by up to an order of magnitude. At $E_{\rm th}=30$\,meV,
+  Al$_2$O$_3$ and Si give the lowest discovery limits. The heavier targets TeO$_2$ and
+  CaWO$_4$ are weaker by factors of $8$ and $16$, because their phonon spectra put less
+  weight at high frequency and the momentum transfer is shared with heavy nuclei. At
+  $E_{\rm th}=1$\,eV the low-mass reach ends at $m_\chi \simeq 20$--$40$\,MeV for all
+  materials, and the shoulder of the CaWO$_4$ and TeO$_2$ curves near $0.1$\,GeV marks
+  the transition between their light (O) and heavy (W, Te) constituents.
+\end{itemize}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{fog_all_materials.png}
+  \caption{$3\sigma$ discovery limits on the spin-independent DM--nucleon cross section
+  in the presence of the neutrino background, for an exposure of 1\,t$\cdot$yr, for
+  CaWO$_4$, Al$_2$O$_3$, TeO$_2$, LiNbO$_3$ and Si. Left: $E_{\rm th}=30$\,meV;
+  centre: $E_{\rm th}=100$\,meV, both with Gaussian resolution $\sigma=E_{\rm th}/5$;
+  right: $E_{\rm th}=1$\,eV.}
+  \label{fig:fog_all}
+\end{figure}
+
+\subsection{Comparison with CRESST}
+
+Figure~\ref{fig:fog_cresst}a places these results in the context of the CRESST
+experiment. The current CRESST-III limits from the CaWO$_4$ ``Detector A''
+(threshold $30.1$\,eV)~\cite{CRESST2019} and the silicon-on-sapphire (SOS) detector
+(threshold $6.7$\,eV)~\cite{CRESST2025Perspective}, together with the projected
+sensitivity of the CRESST upgrade~\cite{CRESST2025Perspective}, are compared with the
+neutrino fog computed here for a $30$\,meV threshold. The upgrade projection assumes a
+100-fold reduction of the low-energy excess and $515$\,kg$\cdot$day of exposure, split
+between 2\,g modules with a $5$\,eV threshold and 24\,g modules with a $30.1$\,eV
+threshold.
+
+Several conclusions follow.
+\begin{itemize}
+  \item At $m_\chi \simeq 1$\,GeV the current CRESST-III limit lies about six orders of
+  magnitude above the neutrino fog, and the upgrade projection about two. This matches
+  the conclusion of Ref.~\cite{CRESST2025Perspective}: CRESST will remain
+  background-free with respect to neutrinos for the foreseeable future, and the
+  low-energy excess, not the neutrino background, is what limits its sensitivity.
+  \item The lowest mass probed by CRESST, $73$\,MeV with the SOS detector, is set by a
+  threshold of several eV. Thresholds of $\mathcal{O}(10$--$100)$\,meV, where
+  multiphonon emission dominates, extend the region in which the neutrino fog becomes
+  the relevant background down to $m_\chi \simeq 0.5$\,MeV. This region is not yet
+  accessible to any CRESST-type detector.
+  \item In this low-mass region the choice of target matters most
+  (Fig.~\ref{fig:fog_all}). CaWO$_4$, the CRESST baseline material, gives the weakest
+  discovery limit below $50$\,MeV, while Al$_2$O$_3$ and Si, which CRESST already
+  operates, gain more than an order of magnitude.
+\end{itemize}
+
+Figure~\ref{fig:fog_cresst}b validates the calculation in the regime studied by CRESST.
+For CaWO$_4$ with $E_{\rm th} = 1$\,eV and an exposure of $1$\,t$\cdot$yr, our discovery
+limit reproduces the shape of the corresponding curve of Bento \emph{et
+al.}~\cite{Bento2024}, including the $^8$B feature near $0.5$\,GeV and the shoulder near
+$0.1$\,GeV. Our limit is lower by a factor of $0.61$--$0.78$ over
+$0.05$--$4$\,GeV. Part of this difference comes from the digitization of the reference
+curve, which reproduces the published CRESST-III 2019 limit to within $10$--$20\%$. The
+rest is consistent with differences in the neutrino-flux inputs and in the treatment of
+the low-energy response. The other materials at the same threshold show the same
+convergence at high mass and the same separation at low mass discussed above.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{fog_vs_cresst.png}
+  \caption{(a) CRESST-III exclusion limits at 90\% CL from Detector A
+  (2019)~\cite{CRESST2019} and from the SOS detector (2024), and the projected
+  sensitivity of the CRESST upgrade with 100 times less low-energy excess (median, envelope of the 5\,eV and
+  30.1\,eV module sets)~\cite{CRESST2025Perspective}, compared with the neutrino fog of
+  this work for $E_{\rm th}=30$\,meV, $\sigma = E_{\rm th}/5$ and 1\,t$\cdot$yr. The grey
+  region is the CaWO$_4$ neutrino fog of Ref.~\cite{Bento2024}.
+  (b) Discovery limits for $E_{\rm th}=1$\,eV and 1\,t$\cdot$yr: this work for all
+  materials (solid) and Bento \emph{et al.}\ for CaWO$_4$ (dotted). Curves other than the
+  CRESST-III 2019 limit were digitized from Ref.~\cite{CRESST2025Perspective}.}
+  \label{fig:fog_cresst}
+\end{figure}
+
+% ---------------- BibTeX entries (move to your .bib) ------------------------
+% @article{CRESST2019,
+%   author  = {Abdelhameed, A. H. and others},
+%   collaboration = {CRESST},
+%   title   = {First results from the {CRESST-III} low-mass dark matter program},
+%   journal = {Phys. Rev. D}, volume = {100}, pages = {102002}, year = {2019},
+%   eprint  = {1904.00498}, archivePrefix = {arXiv}}
+%
+% @article{CRESST2025Perspective,
+%   author  = {Angloher, G. and others},
+%   collaboration = {CRESST},
+%   title   = {The {CRESST} experiment towards the next generation of sub {GeV} direct dark matter detection},
+%   journal = {Commun. Phys.}, year = {2025},
+%   doi     = {10.1038/s42005-025-02476-5}}
+%
+% @article{Bento2024,
+%   author  = {Bento, A. and others},
+%   title   = {Solar neutrinos in cryogenic detectors},
+%   journal = {Eur. Phys. J. C}, volume = {84}, pages = {1118}, year = {2024}}

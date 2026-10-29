@@ -1,0 +1,15 @@
+# generated results (rebuild with run_materials.py and the plot scripts)
+outputs/
+# Python
+__pycache__/
+*.pyc
+.venv/
+# LaTeX build files
+docs/*.aux
+docs/*.log
+docs/*.out
+docs/*.toc
+docs/*.fls
+docs/*.fdb_latexmk
+# macOS
+.DS_Store
